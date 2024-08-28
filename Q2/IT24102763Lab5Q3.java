@@ -1,36 +1,41 @@
 import java.util.Scanner;
 
-public class IT24102763Lab5Q3 {
+public class IT24102763Lab5Q2 {
     public static void main(String[] args) {
-        final int ROOM_CHARGE = 48000; 
         Scanner arp = new Scanner(System.in);
         
-        System.out.println("Enter the start date (day):");
-        int startDate = arp.nextInt();
+
+        System.out.println("Enter the number of new members introduced:");
+        int newMembers = arp.nextInt();
         
-        System.out.println("Enter the end date (day):");
-        int endDate = arp.nextInt();
         
-        if (startDate < 1 || endDate > 31 || startDate >= endDate) {
-            System.out.println("Invalid dates entered.");
-            return;
+        if (newMembers < 0) {
+            System.out.println("Invalid number. It should be greater than or equal to 0.");
+        } else {
+            String prize;
+            switch (newMembers) {
+                case 0:
+                    prize = "No Prize";
+                    break;
+                case 1:
+                    prize = "Pen";
+                    break;
+                case 2:
+                    prize = "Umbrella";
+                    break;
+                case 3:
+                    prize = "Bag";
+                    break;
+                case 4:
+                    prize = "Travelling Chair";
+                    break;
+                default:
+                    prize = "Headphone";
+            }
+            
+           
+            System.out.println("The customer is entitled to: " + prize);
         }
-        
-        int daysReserved = endDate - startDate;
-        
-       
-        double discountRate = 0;
-        if (daysReserved >= 3 && daysReserved <= 4) {
-            discountRate = 0.10;
-        } else if (daysReserved >= 5) {
-            discountRate = 0.20;
-        }
-        
-        
-        double totalAmount = daysReserved * ROOM_CHARGE * (1 - discountRate);
-        
-        
-        System.out.println("Number of days reserved: " + daysReserved);
-        System.out.println("Total amount to be paid: Rs " + totalAmount);
     }
 }
+
